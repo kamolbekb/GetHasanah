@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>N_Tier.Application</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+		<PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+		<PackageReference Include="MailKit" Version="4.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.14" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="7.0.0" />
+		<PackageReference Include="MimeKit" Version="4.2.0" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\N-Tier.Core\N-Tier.Core.csproj" />
+    <ProjectReference Include="..\N-Tier.DataAccess\N-Tier.DataAccess.csproj" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="DataTransferObjects\Contact\" />
+    <Folder Include="DataTransferObjects\Diary\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
+</Project>
