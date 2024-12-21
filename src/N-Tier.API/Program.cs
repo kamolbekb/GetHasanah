@@ -1,7 +1,5 @@
-using System.Security.Claims;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using N_Tier.API;
 using N_Tier.API.Filters;
@@ -9,7 +7,6 @@ using N_Tier.API.Middleware;
 using N_Tier.Application;
 using N_Tier.Application.Models.Validators;
 using N_Tier.DataAccess;
-using N_Tier.DataAccess.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,15 +20,12 @@ builder.Services.AddValidatorsFromAssemblyContaining(typeof(IValidationsMarker))
 builder.Services.AddDbContext<DbContext>(options =>
     options.UseNpgsql("ConnectionString"));
 
-builder.Services.AddSwagger();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddLogging();
    
 builder.Services.AddDataAccess(builder.Configuration)
     .AddApplication(builder.Environment);
-
-builder.Services.AddJwt(builder.Configuration);
 
 builder.Services.AddEmailConfiguration(builder.Configuration);
 
