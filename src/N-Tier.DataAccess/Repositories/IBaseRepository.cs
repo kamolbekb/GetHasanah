@@ -8,7 +8,7 @@ public interface IBaseRepository<TEntity, TKey>
 {
     ValueTask<TEntity> InsertAsync(TEntity entity);
     IQueryable<TEntity> SelectAll();
-    ValueTask<TEntity> SelectByIdAsync(TKey id);
+    ValueTask<TEntity> SelectByIdAsync(int id);
 
     public Task<List<TEntity>> SelectAllWithIncludesAsync(params string[] includes);
     

@@ -19,10 +19,12 @@ public class DatabaseContext : DbContext
         AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
     }
 
-
-    public DbSet<Employee> Employees { get; set; }
-    public DbSet<Contact> Contacts { get; set; }
-    public DbSet<Diary> Diaries { get; set; }
+    public DbSet<Issue> Issues{ get; set; }
+    public DbSet<LearnType> LearnTypes{ get; set; }
+    public DbSet<Notification> Notifications{ get; set; }
+    public DbSet<RepetitionPlan> RepetitionPlans{ get; set; }
+    public DbSet<Surah> Surahs{ get; set; }
+    public DbSet<User> Users{ get; set; }
     
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -36,7 +38,6 @@ public class DatabaseContext : DbContext
         //         .WithOne(o => o.Group)
         //         .HasForeignKey<Group>(o => o.StudyProcessId);
         // });
-        
         
         base.OnModelCreating(builder);
     }

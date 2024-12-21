@@ -28,7 +28,7 @@ public class BaseRepository<TEntity, TKey> : IBaseRepository<TEntity, TKey>
     public IQueryable<TEntity> SelectAll() =>
         _appDbContext.Set<TEntity>();
 
-    public async ValueTask<TEntity> SelectByIdAsync(TKey id) =>
+    public async ValueTask<TEntity> SelectByIdAsync(int id) =>
         await _appDbContext.Set<TEntity>().FindAsync(id);
 
     public async Task<List<TEntity>> SelectAllWithIncludesAsync(params string[] includes)

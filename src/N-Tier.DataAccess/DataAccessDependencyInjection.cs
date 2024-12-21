@@ -15,8 +15,6 @@ public static class DataAccessDependencyInjection
     {
         services.AddDatabase(configuration);
 
-        services.AddIdentity();
-
         services.AddRepositories();
 
         return services;
@@ -24,8 +22,12 @@ public static class DataAccessDependencyInjection
 
     private static void AddRepositories(this IServiceCollection services)
     {
-        services.AddScoped<IContactRepository, ContactRepository>();
-        services.AddScoped<IDiaryRepository, DiaryRepository>();
+        services.AddScoped<IIssueRepository, IssueRepository>();
+        services.AddScoped<ILearnTypeRepository, LearnTypeRepository>();
+        services.AddScoped<INotificationRepository, NotificationRepository>();
+        services.AddScoped<IRepetitionPlanRepository, RepetitionPlanRepository>();
+        services.AddScoped<ISurahRepository, SurahRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
     }
 
     private static void AddDatabase(this IServiceCollection services, IConfiguration configuration)
@@ -43,28 +45,7 @@ public static class DataAccessDependencyInjection
                 options.UseNpgsql(databaseConfig.ConnectionString,
                     opt => opt.MigrationsAssembly(typeof(DatabaseContext).Assembly.FullName)));
     }
-
-    private static void AddIdentity(this IServiceCollection services)
-    {
-
-        services.Configure<IdentityOptions>(options =>
-        {
-            options.Password.RequireDigit = true;
-            options.Password.RequireLowercase = true;
-            options.Password.RequireNonAlphanumeric = true;
-            options.Password.RequireUppercase = true;
-            options.Password.RequiredLength = 6;
-            options.Password.RequiredUniqueChars = 1;
-
-            options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-            options.Lockout.MaxFailedAccessAttempts = 5;
-            options.Lockout.AllowedForNewUsers = true;
-
-            options.User.AllowedUserNameCharacters =
-                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-            options.User.RequireUniqueEmail = true;
-        });
-    }
+    
 }
 
 // TODO move outside?

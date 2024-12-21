@@ -5,7 +5,6 @@ using Microsoft.Extensions.Hosting;
 using N_Tier.Application.Common.Email;
 using N_Tier.Application.MappingProfiles;
 using N_Tier.Application.Services;
-using N_Tier.Application.Services.DevImpl;
 using N_Tier.Application.Services.Impl;
 using N_Tier.Shared.Services;
 using N_Tier.Shared.Services.Impl;
@@ -27,15 +26,15 @@ public static class ApplicationDependencyInjection
 
     private static void AddServices(this IServiceCollection services, IWebHostEnvironment env)
     {
-        services.AddScoped<IContactService, ContactService>();
-        services.AddScoped<IDiaryService, DiaryService>();
         services.AddScoped<IClaimService, ClaimService>();
         services.AddScoped<ITemplateService, TemplateService>();
-
-        if (env.IsDevelopment())
-            services.AddScoped<IEmailService, DevEmailService>();
-        else
-            services.AddScoped<IEmailService, EmailService>();
+        
+        services.AddScoped<IIssueService, IssueService>();
+        services.AddScoped<ILearnTypeService, LearnTypeService>();
+        services.AddScoped<INotificationService, NotificationService>();
+        services.AddScoped<IRepetitionPlanService, RepetitionPlanService>();
+        services.AddScoped<ISurahService, SurahService>();
+        services.AddScoped<IUserService, UserService>();
     }
 
     private static void RegisterAutoMapper(this IServiceCollection services)

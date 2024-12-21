@@ -14,7 +14,7 @@
 		<PackageReference Include="MailKit" Version="4.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.14" />
 		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="7.0.0" />
-		<PackageReference Include="MimeKit" Version="4.2.0" />
+		<PackageReference Include="MimeKit" Version="3.4.0" />
 	</ItemGroup>
 	
   <ItemGroup>
@@ -26,6 +26,7 @@
     <Folder Include="DataTransferObjects\Contact\" />
     <Folder Include="DataTransferObjects\Diary\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Services\DevImpl\" />
   </ItemGroup>
 
 </Project>

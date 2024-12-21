@@ -8,7 +8,7 @@ namespace N_Tier.Application.Extensions;
 
 public static class QueryableExtensions
 {
-    public static async Task<PagedResult<T>> ToPagedResultAsync<T>(this IQueryable<T> query, Options options) where T : BaseEntity
+    public static async Task<PagedResult<T>> ToPagedResultAsync<T>(this IQueryable<T> query, Options options)
     {
         if (options.PageNumber < 1)
             options.PageNumber = 1;
