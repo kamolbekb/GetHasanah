@@ -19,6 +19,7 @@ public class DatabaseContext : DbContext
         AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
     }
 
+
     public DbSet<Issue> Issues{ get; set; }
     public DbSet<LearnType> LearnTypes{ get; set; }
     public DbSet<Notification> Notifications{ get; set; }
