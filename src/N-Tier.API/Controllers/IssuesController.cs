@@ -32,21 +32,21 @@ public class IssuesController : ApiController
 
     [HttpPost]
     [Route("AddIssue")]
-    public async Task<IActionResult> CreateIssue(CreateIssueModel model)
+    public async Task<IActionResult> CreateIssue([FromQuery]CreateIssueModel model)
     {
         return Ok(await _issueService.CreateIssueAsync(model));
     }
 
     [HttpPut]
     [Route("UpdateIssue")]
-    public async Task<IActionResult> UpdateIssue(int id,UpdateIssueModel model)
+    public async Task<IActionResult> UpdateIssue([FromQuery]int id,UpdateIssueModel model)
     {
         return Ok(await _issueService.UpdateIssueAsync(id, model));
     }
 
     [HttpDelete]
     [Route("DeleteIssue")]
-    public async Task<IActionResult> DeleteIssue(int issueId)
+    public async Task<IActionResult> DeleteIssue([FromQuery]int issueId)
     {
         return Ok(await _issueService.DeleteIssueAsync(issueId));
     }

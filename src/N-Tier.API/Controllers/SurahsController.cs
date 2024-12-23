@@ -29,25 +29,4 @@ public class SurahsController : ApiController
     {
         return Ok(ApiResult<IEnumerable<SurahResponseModel>>.Success(await _surahService.GetAllSurahsAsync()));
     }
-
-    [HttpPost]
-    [Route("AddSurah")]
-    public async Task<IActionResult> CreateSurah(CreateSurahModel model)
-    {
-        return Ok(await _surahService.CreateSurahAsync(model));
-    }
-
-    [HttpPut]
-    [Route("UpdateSurah")]
-    public async Task<IActionResult> UpdateSurah(int id,UpdateSurahModel model)
-    {
-        return Ok(await _surahService.UpdateSurahAsync(id, model));
-    }
-
-    [HttpDelete]
-    [Route("DeleteSurah")]
-    public async Task<IActionResult> DeleteSurah(int surahId)
-    {
-        return Ok(await _surahService.DeleteSurahAsync(surahId));
-    }
 }

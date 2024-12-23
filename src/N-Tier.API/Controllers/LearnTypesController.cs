@@ -29,25 +29,4 @@ public class LearnTypesController : ApiController
     {
         return Ok(ApiResult<IEnumerable<LearnTypeResponseModel>>.Success(await _learnTypeService.GetAllLearnTypesAsync()));
     }
-
-    [HttpPost]
-    [Route("AddLearnType")]
-    public async Task<IActionResult> CreateLearnType(CreateLearnTypeModel model)
-    {
-        return Ok(await _learnTypeService.CreateLearnTypeAsync(model));
-    }
-
-    [HttpPut]
-    [Route("UpdateLearnType")]
-    public async Task<IActionResult> UpdateLearnType(int id,UpdateLearnTypeModel model)
-    {
-        return Ok(await _learnTypeService.UpdateLearnTypeAsync(id, model));
-    }
-
-    [HttpDelete]
-    [Route("DeleteLearnType")]
-    public async Task<IActionResult> DeleteLearnType(int learnTypeId)
-    {
-        return Ok(await _learnTypeService.DeleteLearnTypeAsync(learnTypeId));
-    }
 }
